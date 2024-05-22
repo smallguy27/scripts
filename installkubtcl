@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #scriptkubernetes
 sudo sed -i '12s/^/#/' /etc/fstab
 #install the apt-transport-https package and curl
