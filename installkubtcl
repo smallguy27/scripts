@@ -2,15 +2,11 @@
 #scriptkubernetes
 sudo sed -i '12s/^/#/' /etc/fstab
 #install curl
-sudo apt install curl
-#install kubctl
-curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
-#verify
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-kubectl version --client
-#make executble 
-chmod +x kubectl
-#make new dir and move
-mkdir home/smallguy27/kubby
-sudo install -o root -g root -m 0755 kubectl
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+#install
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list   # helps tools such as command-not-found to work correctly
+sudo apt-get update
+sudo apt-get install -y kubectl
