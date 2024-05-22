@@ -4,5 +4,7 @@ sudo sed -i '12s/^/#/' /etc/fstab
 #install the apt-transport-https package and curl
 sudo apt install apt-transport-https curl -y  
 #install kubernetes
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
 sudo apt-get update
 sudo apt-get install -y kubectl
