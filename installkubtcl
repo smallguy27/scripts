@@ -4,13 +4,13 @@ sudo sed -i '12s/^/#/' /etc/fstab
 #install curl
 sudo apt install curl
 #install kubctl
-curl -LO "https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl"
+curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
 #verify
-curl -LO "https://dl.k8s.io/v1.30.0/bin/linux/amd64/kubectl.sha256"
-echo "$(cat kubectl.sha256) kubectl" | sha256sum --check
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 kubectl version --client
 #make executble 
 chmod +x kubectl
 #make new dir and move
 mkdir home/smallguy27/kubby
-sudo mv kubectl home/smallguy27/kubby
+sudo install -o root -g root -m 0755 kubectl
