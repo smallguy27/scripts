@@ -2,3 +2,6 @@ pulled commands from https://kubernetes.io/docs/tasks/tools/install-kubectl-linu
 original installation inputting commands line by line worked.
 Tried to automate the process by creaating a shell script, this failed.
 I had to split the script into 2 parts for some reason installtion fails when the script runs all at once
+Im almost certain the failure has to do with line 4 after the pipe in "installkubtcl" due to the tee command
+Some reason an extra file was created in /etc/apt/sources.list.d named ^$kubernetes.list 
+this messed the script up unsure why.
