@@ -1,4 +1,4 @@
-
+#!/bin/bash
 #turn off swap
 sudo sed -i '12s/^/#/' /etc/fstab
 sudo swappoff -a
