@@ -1,0 +1,7 @@
+
+#turn off swap
+sudo sed -i '12s/^/#/' /etc/fstab
+sudo swappoff -a
+#install package dependencies 
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
