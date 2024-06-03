@@ -1,0 +1,4 @@
+pulled commands from https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+original installation inputting commands line by line worked.
+Tried to automate the process by creaating a shell script, this failed.
+I had to split the script into 2 parts for some reason installtion fails when the script runs all at once
