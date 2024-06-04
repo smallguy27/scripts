@@ -17,3 +17,4 @@ apt-get update -qq && apt-get install -y \
   software-properties-common \
   gcc \
   make
+runc --version
