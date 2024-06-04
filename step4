@@ -9,3 +9,6 @@ sudo systemctl restart crio
 sudo apt install -y cri-tools
 sudo crictl --runtime-endpoint unix:///var/run/crio/crio.sock version
 sudo crictl info
+sudo su -
+crictl completion > /etc/bash_completion.d/crictl
+source ~/.bashrc
